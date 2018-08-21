@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TestApp.Enums;
 
 namespace TestApp
@@ -11,16 +9,14 @@ namespace TestApp
     {
         static void Main(string[] args)
         {
-            BookOnProgramming schildtBook = new BookOnProgramming("Шилдт Основы программирования", 1000, "1313-13", 750, "C#");
-            BookOnCulinary culinary = new BookOnCulinary("Рецепты", 300, "123-13", 140, "Курица");
-            BookOnEsoteric esoteric = new BookOnEsoteric("Мистика и эзотерика", 450, "14234-43", 470, 45);
-            Disc windowsDistr = new Disc("Дистрибутив Windows", 1200, "12412-41-14", DiscType.DVD, DiscContent.Software);
-            Disc metallica = new Disc("Сборник Metallica", 500, "313-213", DiscType.CD, DiscContent.Music);
-            Console.WriteLine(schildtBook.ToString());
-            Console.WriteLine(culinary.ToString());
-            Console.WriteLine(esoteric.ToString());
-            Console.WriteLine(windowsDistr.ToString());
-            Console.WriteLine(metallica.ToString());
+            var list = new List<Product>();
+            list.Add(new DeveloperBook("Шилдт Основы программирования", 1000, "1313-13", 750, "C#"));
+            list.Add(new Disc("Дистрибутив Windows", 1200, "12412-41-14", DiscType.DVD, DiscContent.Software));
+            list.Add(new Disc("Сборник Metallica", 500, "313-213", DiscType.CD, DiscContent.Music));
+            list.Add(new EsotericBook("Мистика и эзотерика", 450, "14234-43", 470, 45));
+            list.Add(new CulinaryBook("Рецепты", 300, "123-13", 140, "Курица"));
+            list.OrderBy(p=>p.Order).ThenBy(p=>p.Title).ToList().ForEach(Console.WriteLine);
+
             Console.ReadKey();
         }
 

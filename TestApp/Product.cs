@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TestApp
+﻿namespace TestApp
 {
     public abstract class Product
     {
@@ -14,8 +8,10 @@ namespace TestApp
             Price = price;
             Barcode = barcode;
         }
-        public string Title { get; private set; }
+        
+        public string Title { get; }
         public int Price { get; set; }
         public string Barcode { get; set; }
+        public string Order { get; protected set; }
     }
 }

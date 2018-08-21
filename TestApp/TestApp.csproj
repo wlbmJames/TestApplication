@@ -43,9 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Book.cs" />
-    <Compile Include="BookOnCulinary.cs" />
-    <Compile Include="BookOnEsoteric.cs" />
-    <Compile Include="BookOnProgramming.cs" />
+    <Compile Include="CulinaryBook.cs" />
+    <Compile Include="EsotericBook.cs" />
+    <Compile Include="DeveloperBook.cs" />
     <Compile Include="Disc.cs" />
     <Compile Include="Enums\DiscContent.cs" />
     <Compile Include="Enums\DiscType.cs" />

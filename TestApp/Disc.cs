@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TestApp.Enums;
 
 namespace TestApp
@@ -13,19 +9,33 @@ namespace TestApp
         {
             Type = type;
             Content = content;
+            Order = $"2.{(int)Type}{(int)Content}";
         }
 
-        public DiscType Type { get; private set; }
-        public DiscContent Content { get; private set; }
-        string _tmpContent;
+        public DiscType Type { get; }
+        public DiscContent Content { get; }
+
         public override string ToString()
         {
-            if (Content == DiscContent.Music) _tmpContent = "музыкой";
-            else if (Content == DiscContent.Video) _tmpContent = "видео";
-            else if (Content == DiscContent.Software) _tmpContent = "ПО";
-            else _tmpContent = "ОШИБКА!!";
-            return $@"{Type} диск {Title} с {_tmpContent}, цена {Price}, штрих-код {Barcode}";
+            string tmpContent;
+            switch (Content)
+            {
+                case DiscContent.Music:
+                    tmpContent = "музыкой";
+                    break;
+                case DiscContent.Video:
+                    tmpContent = "видео";
+                    break;
+                case DiscContent.Software:
+                    tmpContent = "ПО";
+                    break;
+                default:
+                    tmpContent = "ОШИБКА!!";
+                    break;
+            }
+            return $@"{Type} диск {Title} с {tmpContent}, цена {Price}, штрих-код {Barcode} {Environment.NewLine}";
         }
 
     }
 }
+    
